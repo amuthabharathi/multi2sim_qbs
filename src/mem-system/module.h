@@ -86,11 +86,13 @@ struct mod_t
 	/* Parameters */
 	enum mod_kind_t kind;
 	char *name;
+	char *parent_name;
 	int block_size;
 	int log_block_size;
 	int latency;
 	int dir_latency;
 	int mshr_size;
+
 
 	/* Module level starting from entry points */
 	int level;
@@ -232,6 +234,7 @@ struct mod_t
 	long long no_retry_write_hits;
 	long long no_retry_nc_writes;
 	long long no_retry_nc_write_hits;
+	long long inval_counter;
 };
 
 struct mod_t *mod_create(char *name, enum mod_kind_t kind, int num_ports,
